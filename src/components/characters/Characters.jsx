@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { fetchdata } from "../fetchdata";
 import SingleCharacter from "../singleCharacter/SingleCharacter";
+import { useDispatch, useSelector } from "react-redux";
+import { NextPage, PrevPage } from "../../redux/actions/PageNumberActions";
 
 export default function Characters() {
-  const [page, setPage] = useState(1);
   const url = "https://rickandmortyapi.com/api/character/?page=";
+  const dispatch = useDispatch();
+  const pageNumber = useSelector((state) => state.Page_Number.page_number);
+
   const {
     data: characters, //{info:{...} , results:{...}}
     isLoading,
     isError,
     error,
     status,
-  } = useQuery(["characters", page], () => fetchdata(url + page));
+  } = useQuery(["characters", pageNumber], () => fetchdata(url + pageNumber));
   // console.log(characters.results[0]);
   if (isLoading) {
     return <h2 data-testid="loading">Loading ...</h2>;
@@ -34,13 +38,13 @@ export default function Characters() {
       <div className="btns">
         <button
           disabled={!characters.info.prev}
-          onClick={() => setPage((oldPage) => oldPage - 1)}
+          onClick={() => dispatch(PrevPage())}
         >
           prev page
         </button>
         <button
           disabled={!characters.info.next}
-          onClick={() => setPage((oldPage) => oldPage + 1)}
+          onClick={() => dispatch(NextPage())}
         >
           next page
         </button>
