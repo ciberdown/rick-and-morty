@@ -1,0 +1,29 @@
+@import "./colors";
+
+.navbar {
+  display: flex;
+  background-color: $colorAnalogous_a;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.navbar * {
+  color: white;
+  text-decoration: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: $colorAnalogous_c;
+  box-shadow: 2px 2px 4px;
+  transform: translateX(-2px);
+  &:hover {
+    box-shadow: none;
+    color: white;
+    transform: translateX(0px);
+  }
+}

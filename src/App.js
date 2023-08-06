@@ -1,19 +1,12 @@
-import { QueryClient, QueryClientProvider } from "react-query";
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import Characters from "./components/characters/Characters";
-import { Provider } from "react-redux";
-import store from "./redux/store";
+import router from "./usage/router/router";
 
-const queryClient = new QueryClient();
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
-        <div className="App">
-          <Characters />
-        </div>
-      </Provider>
-    </QueryClientProvider>
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
   );
 }
 
