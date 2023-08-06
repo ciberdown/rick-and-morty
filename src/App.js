@@ -1,12 +1,17 @@
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import router from "./usage/router/router";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const client = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
+    <QueryClientProvider client={client}>
+      <div className="App">
+        <RouterProvider router={router} />
+      </div>
+    </QueryClientProvider>
   );
 }
 

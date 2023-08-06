@@ -1903,26 +1903,26 @@
   dependencies:
     "remove-accents" "0.4.2"
 
-"@tanstack/query-core@4.29.19":
-  "integrity" "sha512-uPe1DukeIpIHpQi6UzIgBcXsjjsDaLnc7hF+zLBKnaUlh7jFE/A+P8t4cU4VzKPMFB/C970n/9SxtpO5hmIRgw=="
-  "resolved" "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.29.19.tgz"
-  "version" "4.29.19"
+"@tanstack/query-core@4.32.6":
+  "integrity" "sha512-YVB+mVWENQwPyv+40qO7flMgKZ0uI41Ph7qXC2Zf1ft5AIGfnXnMZyifB2ghhZ27u+5wm5mlzO4Y6lwwadzxCA=="
+  "resolved" "https://registry.npmjs.org/@tanstack/query-core/-/query-core-4.32.6.tgz"
+  "version" "4.32.6"
 
-"@tanstack/react-query-devtools@^4.29.19":
-  "integrity" "sha512-rL2xqTPr+7gJvVGwyq8E8CWqqw950N4lZ6ffJeNX0qqymKHxHW1FM6nZaYt7Aufs/bXH0m1L9Sj3kDGQbp0rwg=="
-  "resolved" "https://registry.npmjs.org/@tanstack/react-query-devtools/-/react-query-devtools-4.29.19.tgz"
-  "version" "4.29.19"
+"@tanstack/react-query-devtools@^4.32.6":
+  "integrity" "sha512-Gd9pBkm2sbeze9P5Yp8R7y0rZVUdoIOhduomDjz138WdJuVbRS4Y8p6gX2uMJFsUFVe7jA6fX/D6NfQ9o5OS/A=="
+  "resolved" "https://registry.npmjs.org/@tanstack/react-query-devtools/-/react-query-devtools-4.32.6.tgz"
+  "version" "4.32.6"
   dependencies:
     "@tanstack/match-sorter-utils" "^8.7.0"
     "superjson" "^1.10.0"
     "use-sync-external-store" "^1.2.0"
 
-"@tanstack/react-query@4.29.19":
-  "integrity" "sha512-XiTIOHHQ5Cw1WUlHaD4fmVUMhoWjuNJlAeJGq7eM4BraI5z7y8WkZO+NR8PSuRnQGblpuVdjClQbDFtwxTtTUw=="
-  "resolved" "https://registry.npmjs.org/@tanstack/react-query/-/react-query-4.29.19.tgz"
-  "version" "4.29.19"
+"@tanstack/react-query@^4.32.6":
+  "integrity" "sha512-AITu/IKJJJXsHHeXNBy5bclu12t08usMCY0vFC2dh9SP/w6JAk5U9GwfjOIPj3p+ATADZvxQPe8UiCtMLNeQbg=="
+  "resolved" "https://registry.npmjs.org/@tanstack/react-query/-/react-query-4.32.6.tgz"
+  "version" "4.32.6"
   dependencies:
-    "@tanstack/query-core" "4.29.19"
+    "@tanstack/query-core" "4.32.6"
     "use-sync-external-store" "^1.2.0"
 
 "@testing-library/dom@^9.0.0", "@testing-library/dom@>=7.21.4":
@@ -8589,10 +8589,10 @@
     "broadcast-channel" "^3.4.1"
     "match-sorter" "^6.0.2"
 
-"react-redux@^7.2.1 || ^8.0.2", "react-redux@^8.1.1":
-  "integrity" "sha512-5W0QaKtEhj+3bC0Nj0NkqkhIv8gLADH/2kYFMTHxCVqQILiWzLv6MaLuV5wJU3BQEdHKzTfcvPN0WMS6SC1oyA=="
-  "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-8.1.1.tgz"
-  "version" "8.1.1"
+"react-redux@^7.2.1 || ^8.0.2", "react-redux@^8.1.2":
+  "integrity" "sha512-xJKYI189VwfsFc4CJvHqHlDrzyFTY/3vZACbE+rr/zQ34Xx1wQfB4OTOSeOSNrF6BDVe8OOdxIrAnMGXA3ggfw=="
+  "resolved" "https://registry.npmjs.org/react-redux/-/react-redux-8.1.2.tgz"
+  "version" "8.1.2"
   dependencies:
     "@babel/runtime" "^7.12.1"
     "@types/hoist-non-react-statics" "^3.3.1"
