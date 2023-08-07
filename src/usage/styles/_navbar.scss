@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  background-color: $colorAnalogous_c_dark;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.navbar > * {
+  color: $colorAnalogous_a_dark;
+  text-decoration: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: $colorAnalogous_c;
+  box-shadow: 2px 2px 4px $colorAnalogous_b;
+  &:hover {
+    box-shadow: none;
+    background-color: $colorAnalogous_c_dark;
+    color: $colorAnalogous_c;
+    transform: translate(2px, 1px);
+    transition:
+      transform 0.1s ease-in-out,
+      box-shadow 0.2s ease-in-out,
+      background-color 1s ease-in-out,
+      color .7s ease-in-out;
+  }
+}

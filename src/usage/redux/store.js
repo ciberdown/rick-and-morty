@@ -1,16 +1,17 @@
-import characterReducer from './reducers/characterReducers'
+import characterReducer from "./reducers/characterReducers";
+import locationReducer from "./reducers/locationReducers";
+import episodeReducer from "./reducers/episodeReducers";
 
-
-const { configureStore } = require("@reduxjs/toolkit")
+const { configureStore } = require("@reduxjs/toolkit");
 
 const reducer = {
-    characters: characterReducer,
-    // eposode: ,
-    // location: ,
-}
+  characters: characterReducer,
+  episodes: episodeReducer,
+  locations: locationReducer,
+};
 
 const store = configureStore({
-    reducer,
-})
+  reducer,
+});
 
 export default store;

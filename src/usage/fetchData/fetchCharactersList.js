@@ -1,18 +1,18 @@
 import axios from "axios";
 import {
   setCharacters,
-  setError,
-  setIsloadingTrue,
+  setCharError,
+  setIsCharloadingTrue,
 } from "../redux/reducers/characterReducers";
 
 const fetchCharactersList = async (url, dispatch) => {
   try {
-    dispatch(setIsloadingTrue());
+    dispatch(setIsCharloadingTrue());
     const response = await axios.get(url);
 
     dispatch(setCharacters(response.data));
   } catch (error) {
-    dispatch(setError(error));
+    dispatch(setCharError(error));
   }
 };
 

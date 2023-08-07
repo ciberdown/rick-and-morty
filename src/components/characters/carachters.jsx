@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchCharactersList from "../../usage/fetchData/fetchCharactersList";
 import SingleCharacter from "./singleCharacter";
 import {
-  nextPage,
-  prevPage,
+  nextCharPage,
+  prevCharPage,
 } from "../../usage/redux/reducers/characterReducers";
+import CustomError from "../errors";
+import CustomLoading from "../loadings";
 
 function Characters() {
   const dispatch = useDispatch();
@@ -28,10 +30,10 @@ function Characters() {
   );
 
   if (isLoading) {
-    return <h1>loading ...</h1>;
+    return <CustomLoading />;
   }
   if (error) {
-    return <h1>error: {error.message}</h1>;
+    return <CustomError error={error} />;
   }
   return (
     characters && (
@@ -43,13 +45,13 @@ function Characters() {
         </div>
         <button
           disabled={!characters.info.prev}
-          onClick={() => dispatch(prevPage())}
+          onClick={() => dispatch(prevCharPage())}
         >
           prev
         </button>
         <button
           disabled={!characters.info.next}
-          onClick={() => dispatch(nextPage())}
+          onClick={() => dispatch(nextCharPage())}
         >
           next
         </button>
