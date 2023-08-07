@@ -10,12 +10,19 @@ import {
 } from "../../usage/redux/reducers/characterReducers";
 import CustomError from "../errors";
 import CustomLoading from "../loadings";
+import Buttons from "../buttons";
 
 function Characters() {
   const dispatch = useDispatch();
   const { characters, isLoading, error, page } = useSelector(
     (state) => state.characters
   );
+  const nextPageHandle = (nextInfo) => {
+    nextInfo && dispatch(nextCharPage());
+  };
+  const prevPageHandle = (prevInfo) => {
+    prevInfo && dispatch(prevCharPage());
+  };
   useQuery(
     "characters" + page,
     () => fetchCharactersList(charactersURL + page, dispatch),
@@ -37,25 +44,21 @@ function Characters() {
   }
   return (
     characters && (
-      <>
+      <div className="char-parent">
         <div className="characters">
           {characters.results.map((character) => (
             <SingleCharacter key={character.id} character={character} />
           ))}
         </div>
-        <button
-          disabled={!characters.info.prev}
-          onClick={() => dispatch(prevCharPage())}
-        >
-          prev
-        </button>
-        <button
-          disabled={!characters.info.next}
-          onClick={() => dispatch(nextCharPage())}
-        >
-          next
-        </button>
-      </>
+
+        <Buttons
+          nextPageHandle={() => nextPageHandle(characters.info.next)}
+          prevPageHandle={() => prevPageHandle(characters.info.prev)}
+          nextInfo={characters.info.next}
+          prevInfo={characters.info.prev}
+          page={page}
+        />
+      </div>
     )
   );
 }

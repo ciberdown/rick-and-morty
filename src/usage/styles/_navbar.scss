@@ -1,12 +1,16 @@
 .navbar {
   display: flex;
-  background-color: $colorAnalogous_c_dark;
+  // background-color: $colorAnalogous_c_dark;
   padding: 20px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25px;
   justify-content: center;
   align-items: center;
-  margin: 10px;
   border-radius: 10px;
   gap: 10px;
+  z-index: 7;
 }
 
 .navbar > * {
@@ -17,16 +21,15 @@
   border-radius: 5px;
   padding: 10px;
   background-color: $colorAnalogous_c;
-  box-shadow: 2px 2px 4px $colorAnalogous_b;
+  box-shadow: 2px 2px 4px $colorAnalogous_a_dark;
   &:hover {
     box-shadow: none;
-    background-color: $colorAnalogous_c_dark;
-    color: $colorAnalogous_c;
+    background-color: $colorAnalogous_b;
     transform: translate(2px, 1px);
     transition:
       transform 0.1s ease-in-out,
       box-shadow 0.2s ease-in-out,
       background-color 1s ease-in-out,
-      color .7s ease-in-out;
+      color 0.7s ease-in-out;
   }
 }

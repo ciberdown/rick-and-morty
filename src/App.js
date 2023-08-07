@@ -9,6 +9,7 @@ function App() {
   return (
     <QueryClientProvider client={client}>
       <div className="App">
+        <div className="paper" />
         <RouterProvider router={router} />
       </div>
     </QueryClientProvider>

@@ -1,7 +1,6 @@
 import React from "react";
 
 function SingleCharacter({ character }) {
-  console.log(character);
   return (
     <div className="character">
       <img className="char-image" src={character.image} alt="image" />

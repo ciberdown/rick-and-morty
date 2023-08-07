@@ -1,13 +1,19 @@
 @import "./grid";
 
+.char-parent {
+  position: absolute;
+  width: 100%;
+  margin-top: 100px;
+}
+
 .characters {
   @include grid-system(20px, 300px, false, true, auto);
-  background-color: $colorAnalogous_c_dark;
   padding: 5px;
 }
 
 .character {
   display: flex;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -15,6 +21,15 @@
   color: $colorAnalogous_c_dark;
   border-radius: 5px;
   padding: 5px;
+  box-shadow: 2px 2px 5px $colorAnalogous_c_dark;
+  &:hover {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+    cursor: pointer;
+    transition:
+      transform 0.2s ease-in-out,
+      box-shadow 0.2s ease-in-out;
+  }
 }
 
 .char-name {

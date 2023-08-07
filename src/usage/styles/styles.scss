@@ -1,7 +1,19 @@
 @import "./colors";
 @import "./characters";
 @import "./navbar";
+@import "./home";
+@import "./buttons";
 
 .App {
   font-size: 20px;
+}
+
+.paper {
+  box-shadow: 1px 1px 10px black;
+  margin-top: 0;
+  background-color: $colorAnalogous_c_dark;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  z-index: 5;
 }
