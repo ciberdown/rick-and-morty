@@ -12,6 +12,8 @@ import CustomError from "../errors";
 import CustomLoading from "../loadings";
 import Buttons from "../buttons";
 
+
+
 function Characters() {
   const dispatch = useDispatch();
   const { characters, isLoading, error, page } = useSelector(

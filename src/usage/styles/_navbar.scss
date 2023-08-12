@@ -21,15 +21,13 @@
   border-radius: 5px;
   padding: 10px;
   background-color: $colorAnalogous_c;
-  box-shadow: 2px 2px 4px $colorAnalogous_a_dark;
+  box-shadow: 3px 3px 4px $colorAnalogous_a_dark;
   &:hover {
-    box-shadow: none;
-    background-color: $colorAnalogous_b;
+    box-shadow: 1px 1px 3px $colorAnalogous_a_dark;
     transform: translate(2px, 1px);
     transition:
       transform 0.1s ease-in-out,
       box-shadow 0.2s ease-in-out,
-      background-color 1s ease-in-out,
       color 0.7s ease-in-out;
   }
 }
