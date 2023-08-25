@@ -3,8 +3,8 @@ import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import fetchEpisodes from "../../usage/fetchData/fetchEpisodesList";
 import { episodesURL } from "../../usage/fetchData/urls";
-import CustomLoading from "../loadings";
-import CustomError from "../errors";
+import CustomLoading from "../loading/loadings";
+import CustomError from "../errors/errors";
 import SingleEpisode from "./singleEpisode";
 import {
   nextEpisodePage,

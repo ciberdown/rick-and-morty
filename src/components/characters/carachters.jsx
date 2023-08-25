@@ -4,15 +4,14 @@ import { charactersURL } from "../../usage/fetchData/urls";
 import { useDispatch, useSelector } from "react-redux";
 import fetchCharactersList from "../../usage/fetchData/fetchCharactersList";
 import SingleCharacter from "./singleCharacter";
+import "./_characters.scss";
 import {
   nextCharPage,
   prevCharPage,
 } from "../../usage/redux/reducers/characterReducers";
-import CustomError from "../errors";
-import CustomLoading from "../loadings";
-import Buttons from "../buttons";
-
-
+import CustomError from "../errors/errors";
+import CustomLoading from "../loading/loadings";
+import Buttons from "../buttons/buttons";
 
 function Characters() {
   const dispatch = useDispatch();

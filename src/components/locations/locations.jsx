@@ -1,22 +1,23 @@
 import React from "react";
-import { isError, useQuery } from "react-query";
+import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import fetchLocations from "../../usage/fetchData/fetchLocationsList";
 import { locationsURL } from "../../usage/fetchData/urls";
-import CustomError from "../errors";
-import CustomLoading from "../loadings";
+import CustomError from "../errors/errors";
+import CustomLoading from "../loading/loadings";
 import SingleLocation from "./singleLocation";
+import "./_locations.scss";
 import {
   nextLocationPage,
   prevLocationPage,
 } from "../../usage/redux/reducers/locationReducers";
+import Buttons from "../buttons/buttons";
 
 function Locations() {
   const dispatch = useDispatch();
   const { locations, error, isLoading, page } = useSelector(
     (state) => state.locations
   );
-
   useQuery(
     "locations" + page,
     () => fetchLocations(locationsURL + page, dispatch),
@@ -39,26 +40,20 @@ function Locations() {
 
   return (
     locations && (
-      <>
+      <div className="loc_parrent">
         <div className="locations">
           {locations.results.map((loc) => (
             <SingleLocation key={loc.id} location={loc} />
           ))}
         </div>
-
-        <button
-          disabled={!locations.info.prev}
-          onClick={() => dispatch(prevLocationPage())}
-        >
-          prev
-        </button>
-        <button
-          disabled={!locations.info.next}
-          onClick={() => dispatch(nextLocationPage())}
-        >
-          next
-        </button>
-      </>
+        <Buttons
+          page={page}
+          nextPageHandle={() => dispatch(nextLocationPage())}
+          prevPageHandle={() => dispatch(prevLocationPage())}
+          prevInfo={locations.info.prev}
+          nextInfo={locations.info.next}
+        />
+      </div>
     )
   );
 }

@@ -4,7 +4,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Root from "./root";
-import Home from "../../components/home";
+import Home from "../../components/home/home";
 import Characters from "../../components/characters/carachters";
 import Episodes from "../../components/episodes/episodes";
 import Locations from "../../components/locations/locations";

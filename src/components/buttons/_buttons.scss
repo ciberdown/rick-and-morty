@@ -1,0 +1,43 @@
+@import "../../usage/styles/constants/colors";
+
+.btns {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+}
+
+.btns > * {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+  width: 50px;
+}
+
+.next-btn {
+}
+.prev-btn {
+}
+
+.active {
+  cursor: pointer;
+  border: 1px solid black;
+  box-shadow: 2px 2px 5px;
+  &:hover {
+    transform: translate(2px, 2px);
+    transition: transform 0.1s ease-in-out;
+  }
+}
+
+.prev-active {
+}
+.next-active {
+}
+
+.page {
+  background-color: $colorAnalogous_c_dark;
+  border-radius: 50%;
+  text-align: center;
+  color: $colorAnalogous_c;
+}

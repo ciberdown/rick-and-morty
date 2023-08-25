@@ -1,0 +1,7 @@
+$top_margin_header: 100px;
+
+@mixin parent_paper_after_header {
+  position: absolute;
+  width: 100%;
+  margin-top: $top_margin_header;
+}
