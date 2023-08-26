@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import "./_navbar.scss";
 
 const NavbarRouter = () => {
+
   return (
-    <div className="navbar">
+    <div className='navbar'>
       <Link to="/">Home</Link>
       <Link to="/characters">Characters</Link>
       <Link to="/locations">Locations</Link>
