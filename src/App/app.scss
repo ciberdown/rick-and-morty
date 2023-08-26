@@ -1,0 +1,21 @@
+@import "../usage/styles/constants/colors";
+$margin_inline: 400px;
+
+.App {
+  font-size: 20px;
+  position: relative;
+  margin-inline: $margin_inline;
+}
+
+.paper {
+  box-shadow: 1px 1px 10px black;
+  margin-top: 0;
+  background-color: $colorAnalogous_c_dark;
+  position: fixed;
+  height: 70px;
+  right: $margin_inline;
+  left: $margin_inline;
+  z-index: 5;
+  border-end-end-radius: 5px;
+  border-end-start-radius: 5px;
+}

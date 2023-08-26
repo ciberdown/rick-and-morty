@@ -7,10 +7,9 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 25px;
+  top: -5px;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   gap: 10px;
   z-index: 7;
 }
@@ -23,7 +22,7 @@
   border-radius: 5px;
   padding: 10px;
   background-color: $colorAnalogous_c;
-  box-shadow: 3px 3px 4px $colorAnalogous_a_dark;
+  box-shadow: 2px 2px 3px black;
   &:hover {
     box-shadow: 1px 1px 3px $colorAnalogous_a_dark;
     transform: translate(2px, 1px);
