@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { charactersURL } from "../../usage/fetchData/urls";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +14,30 @@ import CustomLoading from "../loading/loadings";
 import Buttons from "../buttons/buttons";
 
 function Characters() {
+  useEffect(() => {
+    const handleScroll = () => {
+      // Calculate the scroll position
+      const scrollPosition = window.innerHeight + window.scrollY;
+      // Calculate the total height of the page
+      const totalPageHeight = document.documentElement.scrollHeight;
+
+      // Define a threshold (e.g., 10 pixels) to trigger the log
+      const threshold = 1;
+
+      // If the scroll position is close to the bottom of the page
+      if (totalPageHeight - scrollPosition < threshold) {
+        console.log("Reached the bottom of the page!");
+      }
+    };
+
+    // Add the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const dispatch = useDispatch();
   const { characters, isLoading, error, page } = useSelector(
     (state) => state.characters
