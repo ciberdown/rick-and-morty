@@ -7,7 +7,7 @@ function Home() {
       <div className="part-1">
         <h1 className="title-rick-and-morty">Rick and Morty</h1>
         <section className="flex-part">
-          <p className="main-rick-and-morty">
+          <p className="main-rick-and-morty justify">
             Rick and Morty is an American adult animated science fiction sitcom
             created by Justin Roiland and Dan Harmon for Cartoon Network's
             nighttime programming block Adult Swim. The series follows the
@@ -52,7 +52,7 @@ function Home() {
             src="./assets/images/rickAndMorty2.jpg"
             alt="rick and morty image"
           />
-          <p>
+          <p className="justify">
             The show revolves around the adventures of the members of the Smith
             household, which consists of parents Jerry and Beth, their children
             Summer and Morty, and Beth's father, Rick Sanchez, who lives with
@@ -88,7 +88,7 @@ function Home() {
 
       <h1>Production</h1>
       <h2>Development</h2>
-      <p>
+      <p className="justify">
         Rick and Morty was created by Justin Roiland and Dan Harmon. The duo
         first met at Channel 101, a non-profit monthly short film festival in
         Los Angeles co-founded by Harmon. At Channel 101, participants submit a
@@ -150,7 +150,7 @@ function Home() {
         Dog".
       </p>
       <h2>Writing</h2>
-      <p>
+      <p className="justify">
         Harmon has noted that the writers' room at the show's studio bears a
         striking resemblance to the one used for Community. In comparing the
         two, he noted that the writing staff of Rick and Morty was significantly
@@ -189,7 +189,7 @@ function Home() {
         more sense within the series' continuity
       </p>
       <h2>Animation and voice recording</h2>
-      <p>
+      <p className="justify">
         Animation for the show is done using Toon Boom Harmony, a vector-based
         2D puppet software, which is a more economical option than traditional
         hand-drawn animation. The post-production work is done in Adobe After
@@ -214,7 +214,7 @@ function Home() {
         natural.
       </p>
       <h2>Roiland's firing</h2>
-      <p>
+      <p className="justify">
         In January 2023, it was reported that Roiland was charged with felony
         domestic battery and false imprisonment in Orange County, California, in
         connection with an alleged incident in January 2020 toward an unnamed
