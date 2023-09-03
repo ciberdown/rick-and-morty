@@ -1,7 +1,30 @@
 @import "../../usage/styles/constants/constants";
+@import '../../usage/styles/constants/colors';
 
 .loc_parrent {
   @include parent_paper_after_header;
 }
 .locations {
+  button {
+    background: $colorAnalogous_c_dark;
+    color: white;
+    border: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &:hover {
+      background: $colorAnalogous_c;
+      color: $colorAnalogous_c_dark;
+    }
+  }
+}
+
+.residents {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
 }

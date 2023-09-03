@@ -26,7 +26,9 @@ $width: 300px;
   padding: 5px;
   box-shadow: 2px 2px 5px $colorAnalogous_c_dark;
   overflow: hidden;
+}
 
+.char_hover {
   &:hover {
     box-shadow: 1px 1px 2px $colorAnalogous_c_dark;
     transform: translate(2px, 2px);
@@ -34,12 +36,9 @@ $width: 300px;
     transition:
       transform 0.1s ease-in-out,
       box-shadow 0.2s ease-in-out;
-  }
-}
-
-.character:hover {
-  .char-image {
-    animation: zoomInBackground 0.2s ease-in-out forwards alternate;
+    .char-image {
+      animation: zoomInBackground 0.2s ease-in-out forwards alternate;
+    }
   }
 }
 
@@ -70,18 +69,7 @@ $width: 300px;
   }
 }
 
-.char-1-bigger {
-  @include grid-1;
-  .char-image {
-    width: $width * 2.1;
-  }
-  .image-container {
-    width: $width * 2.1;
-  }
-}
-
-.char-16-bigger {
-  @include grid-16;
+.char-bigger {
   .char-image {
     width: $width * 2.1;
   }

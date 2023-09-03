@@ -1,27 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import Popup from "../popup_window/popup";
+import SingleLocation from "../locations/singleLocation";
+import { useQuery } from "react-query";
+import axios from "axios";
 
-function SingleCharacter({ character }) {
-  function getCharClasses() {
-    const defaultClass = "character ";
-    if (character.id%10 === 1) {
-      return defaultClass + " char-1-bigger";
-    } else if (character.id%16 === 1) {
-      return defaultClass + " char-16-bigger";
+const fetchSingleLocation = async (url) => {
+  const res = await axios.get(url);
+  return res.data;
+};
+
+function SingleCharacter({ character: { id, image, name, location, origin } }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const {
+    data: locationData,
+    isLoading,
+    isError,
+    error,
+    status,
+  } = useQuery("locationData", () => fetchSingleLocation(location.url), {
+    enabled: true,
+    onUnmount: (data) => {
+      // Cancel the ongoing query if it's still active => cleanup function
+      if (data.cancel) {
+        data.cancel();
+      }
+    },
+  }); //u can add come condition to enable
+
+  function getCharClasses(id) {
+    const defaultClass = isPopupOpen ? "character " : "character char_hover ";
+    const classes = [1];
+    if (classes.indexOf(id) > -1) {
+      return defaultClass + `grid-${id} char-bigger`;
+    } else {
+      return defaultClass;
     }
-    return defaultClass;
   }
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
-    <div className={getCharClasses()}>
+    <div className={getCharClasses(id)}>
       <div className="image-container">
-        <img className="char-image" src={character.image} alt="image" />
+        <img className="char-image" src={image} alt="image" />
       </div>
-      <p className="char-name">{character.name}</p>
-      <a className="char-location" href={character.location.url}>
-        location: {character.location.name}
-      </a>
-      <a className="char-location" href={character.origin.url}>
-        origin: {character.origin.name}
-      </a>
+      <p className="char-name">{name}</p>
+      <p className="char-location" onClick={openPopup}>
+        location: {location.name}
+      </p>
+      <p className="char-location" href={origin.url}>
+        origin: {origin.name}
+      </p>
+      <Popup isOpen={isPopupOpen} onClose={closePopup}>
+        <SingleLocation location={locationData} />
+      </Popup>
     </div>
   );
 }
