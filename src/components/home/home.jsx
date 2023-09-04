@@ -1,9 +1,22 @@
 import React from "react";
 import "./_home.scss";
+import { useState } from "react";
+import Popup from "../popup_window/popup";
 
 function Home() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [popupImage, setPopupImage] = useState(
+    "./assets/images/rickAndMorty1.jpg"
+  );
+
+  const openPopup = () => {
+    setIsPopupOpen(true);
+  };
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
   return (
-    <div className="home">
+    <div className={isPopupOpen ? "home no-scroll" : "home"}>
       <div className="part-1">
         <h1 className="title-rick-and-morty">Rick and Morty</h1>
         <section className="flex-part">
@@ -41,7 +54,18 @@ function Home() {
           <img
             src="./assets/images/rickAndMorty1.jpg"
             alt="rick and morty image"
+            onClick={() => {
+              setPopupImage("./assets/images/rickAndMorty1.jpg");
+              openPopup();
+            }}
           />
+          <Popup isOpen={isPopupOpen} onClose={closePopup}>
+            <img
+              style={{ borderRadius: "1rem" }}
+              src={popupImage}
+              alt="rick and morty image"
+            />
+          </Popup>
         </section>
       </div>
       <div className="part-2">
@@ -51,6 +75,10 @@ function Home() {
           <img
             src="./assets/images/rickAndMorty2.jpg"
             alt="rick and morty image"
+            onClick={() => {
+              setPopupImage("./assets/images/rickAndMorty2.jpg");
+              openPopup();
+            }}
           />
           <p className="justify">
             The show revolves around the adventures of the members of the Smith
