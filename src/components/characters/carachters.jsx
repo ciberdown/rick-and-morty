@@ -89,7 +89,7 @@ function Characters() {
         ))}
       </div>
 
-      {isLoadingMore && (
+      {isLoading && (
         <Box sx={{ width: "100%" }}>
           <LinearProgress sx={{ margin: 10 }} />
         </Box>

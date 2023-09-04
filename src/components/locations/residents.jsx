@@ -30,8 +30,9 @@ function Residents({ input }) {
       }
     },
   });
-  console.log(residents)
-
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className="residents">
       {residents &&

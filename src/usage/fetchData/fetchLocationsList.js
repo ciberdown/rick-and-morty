@@ -1,17 +1,11 @@
 import axios from "axios";
-import {
-  setLocationError,
-  setLocationIsLoadingTrue,
-  setLocations,
-} from "../redux/reducers/locationReducers";
 
-const fetchLocations = async (url, dispatch) => {
+const fetchLocations = async (url) => {
   try {
-    dispatch(setLocationIsLoadingTrue());
     const res = await axios.get(url);
-    dispatch(setLocations(res.data));
+    return res.data;
   } catch (error) {
-    dispatch(setLocationError(error));
+    throw new Error("locations not found!");
   }
 };
 

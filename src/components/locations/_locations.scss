@@ -1,10 +1,13 @@
 @import "../../usage/styles/constants/constants";
-@import '../../usage/styles/constants/colors';
+@import "../../usage/styles/constants/colors";
+@import "../../usage/styles/constants/grid";
 
 .loc_parrent {
   @include parent_paper_after_header;
 }
 .locations {
+  @include grid-system;
+
   button {
     background: $colorAnalogous_c_dark;
     color: white;
@@ -13,16 +16,31 @@
     padding: 5px 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+    border: 2px solid $colorAnalogous_c_dark;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition:
+      background 0.3s ease-in-out,
+      color 0.3s ease-in-out;
 
     &:hover {
       background: $colorAnalogous_c;
       color: $colorAnalogous_c_dark;
+      border: 2px solid $colorAnalogous_c_dark;
+    }
+    &:disabled {
+      background-color: grey;
+      border-color: grey;
+      cursor: not-allowed;
+      color: white;
     }
   }
 }
-
+.location {
+  @include box;
+}
+.loc_hover {
+  @include box_hover;
+}
 .residents {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

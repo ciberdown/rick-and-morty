@@ -14,14 +14,16 @@ function SingleLocation({
     setIsPopupOpen(false);
   };
   return (
-    <div className="location">
+    <div className={isPopupOpen ? "location" : "location loc_hover"}>
       <p className="loc_name">name: {name}</p>
       {dimension !== "unknown" && (
         <p className="loc_dimension">dimension: {dimension}</p>
       )}
       <p className="loc_type">type: {type}</p>
       <p>created in: {created}</p>
-      {residents.length !== 0 && <button onClick={openPopup}>residents</button>}
+      <button disabled={residents.length === 0} onClick={openPopup}>
+        residents
+      </button>
       <Popup isOpen={isPopupOpen} onClose={closePopup}>
         <Residents input={residents} />
       </Popup>
