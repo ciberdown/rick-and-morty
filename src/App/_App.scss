@@ -37,5 +37,12 @@ $max_width: 1200px;
   text-justify: inter-word; /* Helps with word spacing */
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-
+.no-scroll {
+  overflow: hidden;
+}

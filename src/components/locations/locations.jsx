@@ -61,7 +61,7 @@ function Locations() {
     if (totalPageHeight - scrollPosition < threshold && !isLoadingMore) {
       // console.log("Reached the bottom of the page!: scroll: ", scrollPosition);
       setScrollY_position(window.scrollY);
-      setPage((prevPage) => prevPage + 1);
+      if (data.info.next) setPage((prevPage) => prevPage + 1);
     }
   };
 

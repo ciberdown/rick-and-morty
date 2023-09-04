@@ -1,27 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { useDispatch, useSelector } from "react-redux";
 import fetchEpisodes from "../../usage/fetchData/fetchEpisodesList";
 import { episodesURL } from "../../usage/fetchData/urls";
-import CustomLoading from "../loading/loadings";
-import CustomError from "../errors/errors";
 import SingleEpisode from "./singleEpisode";
-import {
-  nextEpisodePage,
-  prevEpisodePage,
-} from "../../usage/redux/reducers/episodeReducers";
+
+import "./_episodes.scss";
+import CustomError from "../errors/errors";
 
 function Episodes() {
-  const dispatch = useDispatch();
-  const { episodes, error, page, isLoading } = useSelector(
-    (state) => state.episodes
-  );
+  const [episodes, setEpisodes] = useState([]);
+  const [page, setPage] = useState(1);
+  const [scrollY_position, setScrollY_position] = useState(null);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-  useQuery(
+  const { data, isLoading, error, isFetching } = useQuery(
     "episodes" + page,
-    () => {
-      fetchEpisodes(episodesURL, dispatch);
-    },
+    () => fetchEpisodes(episodesURL + page),
     {
       enabled: true,
       onUnmount: (data) => {
@@ -32,35 +26,69 @@ function Episodes() {
     }
   );
 
+  console.log(data);
+  useEffect(() => {
+    if (data !== undefined) {
+      if (page === 1) {
+        setEpisodes(data.results);
+      } else {
+        setEpisodes((prev) => [...prev, ...data.results]);
+      }
+    }
+  }, [data]);
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      window.scrollTo(0, scrollY_position);
+    }, 100);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [scrollY_position]);
+
+  useEffect(() => {
+    if (isFetching) {
+      setIsLoadingMore(true);
+    } else {
+      setIsLoadingMore(false);
+    }
+  }, [isFetching]);
+
+  const handleScroll = () => {
+    const scrollPosition = window.innerHeight + window.scrollY;
+    const totalPageHeight = document.documentElement.scrollHeight;
+    const threshold = 1;
+
+    if (totalPageHeight - scrollPosition < threshold && !isLoadingMore) {
+      // console.log("Reached the bottom of the page!: scroll: ", scrollPosition);
+      setScrollY_position(window.scrollY);
+      if (data.info.next) {
+        setPage((prevPage) => prevPage + 1);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isLoadingMore]);
+
   if (isLoading) {
-    return <CustomLoading />;
+    return <h1>is Loading...</h1>;
   }
   if (error) {
     return <CustomError error={error} />;
   }
-
   return (
-    episodes && (
-      <>
-        <div className="episodes">
-          {episodes.results.map((ep) => (
-            <SingleEpisode key={ep.id} episode={ep} />
-          ))}
-        </div>
-        <button
-          disabled={!episodes.info.prev}
-          onClick={() => dispatch(prevEpisodePage())}
-        >
-          prev
-        </button>
-        <button
-          disabled={!episodes.info.next}
-          onClick={() => dispatch(nextEpisodePage())}
-        >
-          next
-        </button>
-      </>
-    )
+    <div className="episodes_parrent">
+      <div className="episodes">
+        {episodes.map((ep, index) => (
+          <SingleEpisode key={index} episode={ep} />
+        ))}
+      </div>
+    </div>
   );
 }
 

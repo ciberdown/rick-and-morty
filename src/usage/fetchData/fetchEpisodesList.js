@@ -1,17 +1,11 @@
 import axios from "axios";
-import {
-  setEpisodeError,
-  setEpisodeIsLoadingTrue,
-  setEpisodes,
-} from "../redux/reducers/episodeReducers";
 
-const fetchEpisodes = async (url, dispatch) => {
+const fetchEpisodes = async (url) => {
   try {
-    dispatch(setEpisodeIsLoadingTrue());
     const res = await axios.get(url);
-    dispatch(setEpisodes(res.data));
+    return res.data;
   } catch (error) {
-    dispatch(setEpisodeError(error));
+    throw new Error("episodes loading error");
   }
 };
 

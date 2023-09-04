@@ -29,7 +29,7 @@ function SingleCharacter({ character: { id, image, name, location, origin } }) {
   }); //u can add come condition to enable
 
   function getCharClasses(id) {
-    const defaultClass = isPopupOpen ? "character " : "character char_hover ";
+    const defaultClass = isPopupOpen ? "character" : "character char_hover ";
     const classes = [1];
     if (classes.indexOf(id) > -1) {
       return defaultClass + `grid-${id} char-bigger`;
@@ -52,10 +52,10 @@ function SingleCharacter({ character: { id, image, name, location, origin } }) {
         <img className="char-image" src={image} alt="image" />
       </div>
       <p className="char-name">{name}</p>
-      <p className="char-location" onClick={openPopup}>
+      <p className="char-location flex-center" onClick={openPopup}>
         location: {location.name}
       </p>
-      <p className="char-location" href={origin.url}>
+      <p className="char-location flex-center" href={origin.url}>
         origin: {origin.name}
       </p>
       <Popup isOpen={isPopupOpen} onClose={closePopup}>
